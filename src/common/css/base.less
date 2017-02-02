@@ -1,0 +1,39 @@
+body {
+    line-height: 1;
+}
+.outtexthiddden {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.border-1px {
+    position: relative;
+}
+.border-1px:after {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-top: 1px solid rgba(7,17,27,.1);
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .border-1px {
+        position: relative;
+    }
+    .border-1px:after {
+        height: 1px;
+        content: '';
+        width: 100%;
+        border-top: 1px solid rgba(7,17,27,.1);
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        transform: scaleY(0.5);
+        -webkit-transform: scaleY(0.5);
+    }
+}
+.border-none:after{
+    height: 0;
+}
