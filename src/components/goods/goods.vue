@@ -136,7 +136,7 @@
 			showFood(food){
 				this.selectedFood=food;
 				console.log(food);
-				this.$refs.food.foodShow=true;
+				this.$refs.food.show();
 			}
 		},
 		components: {

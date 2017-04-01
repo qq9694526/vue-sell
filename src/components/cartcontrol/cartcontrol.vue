@@ -27,6 +27,7 @@
 			},
 			decreaseCart() {
 				if(this.food.count) {
+					
 					this.$set(this.food, "count", this.food.count - 1);
 				}
 			}
