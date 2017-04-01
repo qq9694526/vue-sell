@@ -12,7 +12,7 @@
 				<router-link to="/seller" tag="div">商家</router-link>
 			</div>
 		</div>
-		<router-view></router-view>
+		<router-view :seller="seller"></router-view>
 	</div>
 </template>
 
@@ -22,22 +22,22 @@
 
 	export default {
 		data() {
-				return {
-					seller: {}
-				}
-			},
-			created() {
-				this.$http.get('./api/seller').then((res) => {
-					let json = res.body;
-					console.log(json.data);
-					if(json.errno == ERR_OK) {
-						this.seller = json.data;
-					}
-				})
-			},
-			components: {
-				vHeader
+			return {
+				seller: {}
 			}
+		},
+		created() {
+			this.$http.get('./api/seller').then((res) => {
+				let json = res.body;
+				console.log(json.data);
+				if(json.errno == ERR_OK) {
+					this.seller = json.data;
+				}
+			})
+		},
+		components: {
+			vHeader
+		}
 	}
 </script>
 
