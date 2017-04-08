@@ -105,7 +105,6 @@
 							height += goodsList[i].clientHeight;
 							this.listHeight.push(height);
 						}
-						console.log(this.listHeight);
 					});
 				}
 			})
@@ -119,7 +118,6 @@
 				let el = goodsList[index];
 				//scroll插件提供的滚动到指定DOM方法
 				this.goodsScroll.scrollToElement(el, 300);
-				console.log(index);
 			},
 			_initScroll() { //初始化better-scroll滚动组件
 				this.menuScroll = new BScroll(this.$refs.menuWrapper, {
@@ -135,7 +133,6 @@
 			},
 			showFood(food){
 				this.selectedFood=food;
-				console.log(food);
 				this.$refs.food.show();
 			}
 		},
