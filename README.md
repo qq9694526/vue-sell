@@ -7,6 +7,7 @@
 
 ## 演示地址
 http://www.zhaohaipeng.com/sell （请使用chrome开发者手机演示模式预览）
+<br/>
 <img src="http://www.zhaohaipeng.com/sell/static/img/sellbyvue.jpg">
 ## 安装步骤
 
