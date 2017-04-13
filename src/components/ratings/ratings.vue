@@ -55,10 +55,11 @@
 <script type="text/ecmascript-6">
 	import BScroll from 'better-scroll'
 	import { formatDate } from 'common/js/date'
+	import { DATA } from '../../common/js/data.js'
 	import vSplit from 'components/split/split'
 	import vStar from 'components/star/star'
 	import vRatingselect from 'components/ratingselect/ratingselect'
-	
+
 	const ERR_OK = 0;
 	export default {
 		data() {
@@ -74,22 +75,16 @@
 			}
 		},
 		created() {
-			this.$http.get('./api/ratings').then((res) => {
-				let json = res.body;
-				if(json.errno == ERR_OK) {
-					this.ratings = json.data;
-					this.$nextTick(() => {
-						if(!this.ratingsScroll) {
-							this.ratingsScroll = new BScroll(this.$refs.ratings, {
-								click: true
-							});
-						} else {
-							this.ratingsScroll.refresh();
-						}
-					})
+			this.ratings = DATA.ratings;
+			this.$nextTick(() => {
+				if(!this.ratingsScroll) {
+					this.ratingsScroll = new BScroll(this.$refs.ratings, {
+						click: true
+					});
+				} else {
+					this.ratingsScroll.refresh();
 				}
-			});
-
+			})
 			//通过事件中心监听事件
 			this.$root.eventHub.$on("update-selects", this.updateSelects);
 		},
@@ -123,7 +118,7 @@
 				})
 			}
 		},
-		filters:{
+		filters: {
 			formatDate(time) {
 				var date = new Date(time);
 				return formatDate(date, 'yyyy-MM-dd hh:mm');

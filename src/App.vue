@@ -20,6 +20,7 @@
 
 <script type="text/ecmascript-6">
 	import vHeader from 'components/header/header'
+	import {DATA} from './common/js/data.js'
 	const ERR_OK = 0;
 
 	export default {
@@ -29,13 +30,7 @@
 			}
 		},
 		created() {
-			this.$http.get('./api/seller').then((res) => {
-				let json = res.body;
-				console.log(json.data);
-				if(json.errno == ERR_OK) {
-					this.seller = json.data;
-				}
-			})
+			this.seller=DATA.seller;
 		},
 		components: {
 			vHeader

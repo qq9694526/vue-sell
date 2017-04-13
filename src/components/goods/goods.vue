@@ -45,6 +45,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+	import { DATA } from '../../common/js/data.js'
 	import vTypeicons from 'components/typeicons/typeicons'
 	import BScroll from 'better-scroll'
 	import vShopcart from 'components/shopcart/shopcart'
@@ -57,7 +58,7 @@
 				goods: [],
 				listHeight: [],
 				scrollY: 0,
-				selectedFood:{}
+				selectedFood: {}
 			}
 		},
 		props: {
@@ -91,23 +92,17 @@
 			}
 		},
 		created() {
-			this.$http.get('./api/goods').then((res) => {
-				let json = res.body;
-				console.log(json.data);
-				if(json.errno == 0) {
-					this.goods = json.data;
-					this.$nextTick(() => { //DOM更新后执行
-						this._initScroll();
-						let goodsList = this.$refs.goodsList;
-						let height = 0;
-						this.listHeight.push(height);
-						for(var i = 0; i < goodsList.length; i++) {
-							height += goodsList[i].clientHeight;
-							this.listHeight.push(height);
-						}
-					});
+			this.goods = DATA.goods;
+			this.$nextTick(() => { //DOM更新后执行
+				this._initScroll();
+				let goodsList = this.$refs.goodsList;
+				let height = 0;
+				this.listHeight.push(height);
+				for(var i = 0; i < goodsList.length; i++) {
+					height += goodsList[i].clientHeight;
+					this.listHeight.push(height);
 				}
-			})
+			});
 		},
 		methods: {
 			selectMenu(index, event) { //scroll插件派发了点击事件,需要把系统默认的点击事件阻止
@@ -131,8 +126,8 @@
 					this.scrollY = Math.abs(Math.round(pos.y));
 				})
 			},
-			showFood(food){
-				this.selectedFood=food;
+			showFood(food) {
+				this.selectedFood = food;
 				this.$refs.food.show();
 			}
 		},

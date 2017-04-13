@@ -10,6 +10,7 @@ import seller from './components/seller/seller'
 import './common/css/index.less'
 import './common/fonts/iconfont.css'
 
+import {DATA} from './common/js/data.js'
 //开启debug模式
 Vue.config.debug = true;
 Vue.use(VueRouter);
