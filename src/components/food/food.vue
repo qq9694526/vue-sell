@@ -84,7 +84,7 @@
 			},
 			selectedRatings() {
 				var selectedRatings = [];
-				if(this.ratings && this.ratings.length == 0) {
+				if(!this.ratings || this.ratings.length == 0) {
 					return [];
 				}
 				if(this.selectType == 2) {
@@ -127,7 +127,13 @@
 				this.selectType = selects[0];
 				this.onlyContent = selects[1];
 				this.$nextTick(() => {
-					this.foodScroll.refresh();
+					if(!this.foodScroll) {
+						this.foodScroll = new BScroll(this.$refs.foodWrapper, {
+							click: true
+						});
+					} else {
+						this.foodScroll.refresh();
+					}
 				})
 			}
 		},

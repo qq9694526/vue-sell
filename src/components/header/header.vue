@@ -40,7 +40,8 @@
 					</div>
 					<ul v-if="seller.supports" class="supports">
 						<li class="support-item" v-for="item in seller.supports">
-							<span class="icon" :class="classMap[item.type]"></span>
+							<v-typeicons :size="16" :index="item.type"></v-typeicons>
+							<!--<span class="icon" :class="classMap[item.type]"></span>-->
 							<span class="text">{{item.description}}</span>
 						</li>
 					</ul>
@@ -59,39 +60,12 @@
 			</div>
 		</transition>
 
-		<!--<div v-show="detailShow" class="detail">
-			<div class="content">
-				<h1 class="name">{{seller.name}}</h1>
-				<star :size="20" :score="seller.score"></star>
-				<div class="title">
-					<div class="line"></div>
-					<div class="text">优惠信息</div>
-					<div class="line"></div>
-				</div>
-				<ul v-if="seller.supports" class="supports">
-					<li class="support-item" v-for="item in seller.supports">
-						<span class="icon" :class="classMap[item.type]"></span>
-						<span class="text">{{item.description}}</span>
-					</li>
-				</ul>
-				<div class="title">
-					<div class="line"></div>
-					<div class="text">商家公告</div>
-					<div class="line"></div>
-				</div>
-				<div class="bulletin">
-					<p>{{seller.bulletin}}</p>
-				</div>
-			</div>
-			<div class="close">
-				<span class="icon icon-close" @click="closeDetail"></span>
-			</div>
-		</div>-->
 	</div>
 </template>
 
 <script type="text/ecmascript-6">
 	import star from 'components/star/star'
+	import vTypeicons from 'components/typeicons/typeicons'
 	export default {
 		data() {
 				return {
@@ -116,7 +90,8 @@
 				this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
 			},
 			components: {
-				star
+				star,
+				vTypeicons
 			}
 	}
 </script>
@@ -180,6 +155,7 @@
 			}
 			.content {
 				flex: 1;
+				text-align: center;
 				.name {
 					font-size: 16px;
 					font-weight: 700;
@@ -203,6 +179,7 @@
 					}
 				}
 				.supports {
+					text-align: left;
 					font-size: 12px;
 					font-weight: 200;
 					font-size: 0;
@@ -246,6 +223,7 @@
 					}
 				}
 				.bulletin {
+					text-align: left;
 					width: 80%;
 					margin: 0 auto;
 					>p {

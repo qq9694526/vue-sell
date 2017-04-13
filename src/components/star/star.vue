@@ -41,6 +41,7 @@
 
 <style type="text/css" lang="less" scoped>
 	.starwrapper {
+		display: inline-block;
 		text-align: center;
 	}
 	
@@ -72,6 +73,25 @@
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
 			margin-right: 6px;
+		}
+		.on {
+			background-image: url(star48_on@3x.png);
+		}
+		.half {
+			background-image: url(star48_half@3x.png);
+		}
+		.off {
+			background-image: url(star48_off@3x.png);
+		}
+	}
+	.star-12 {
+		.item {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			margin-right: 3px;
 		}
 		.on {
 			background-image: url(star48_on@3x.png);

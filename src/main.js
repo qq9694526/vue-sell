@@ -16,30 +16,30 @@ Vue.use(VueRouter);
 Vue.use(vueResource);
 
 var router = new VueRouter({
-//	mode: 'history',
-	linkActiveClass:'active',
+	linkActiveClass: 'active',
 	routes: [{
-		path: '/goods',
-		component: goods
-	}, {
-		path: '/ratings',
-		component: ratings
-	}, {
-		path: '/seller',
-		component: seller
-	}]
+			path: '/',
+			redirect: {
+				name: 'goods'
+			}
+		},
+		{
+			path: '/goods',
+			component: goods,
+			name: 'goods'
+		}, {
+			path: '/ratings',
+			component: ratings
+		}, {
+			path: '/seller',
+			component: seller
+		}
+	]
 })
-var app=new Vue({
-	data:{
+var app = new Vue({
+	data: {
 		eventHub: new Vue() // 将在各处使用该事件中心,组件通过它来通信
 	},
 	router,
 	render: h => h(App)
 }).$mount('#app')
-//router.push('/goods')
-
-//new Vue({
-//el: '#app',
-//template: '<App/>',
-//components: { App }
-//})
