@@ -7,11 +7,7 @@
 
 ## 演示地址
 http://www.zhaohaipeng.com/sell （请使用chrome开发者手机演示模式预览）
-<<<<<<< HEAD
 <img src="http://www.zhaohaipeng.com/sell/static/img/sellbyvue.jpg">
-=======
-
->>>>>>> b5b00c53aa4d214588e66aae665c1124a9a06e0b
 ## 安装步骤
 
 ``` bash
@@ -25,3 +21,7 @@ npm run dev
 npm run build
 ```
 ## 项目截图
+<img src="http://www.zhaohaipeng.com/sell/static/img/sell-index.jpg">
+<img src="http://www.zhaohaipeng.com/sell/static/img/sell-rating.jpg">
+<img src="http://www.zhaohaipeng.com/sell/static/img/sell-seller.jpg">
+<img src="http://www.zhaohaipeng.com/sell/static/img/sell-detail.jpg">
